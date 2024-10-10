@@ -22,8 +22,8 @@ public class QuerydslBuilder {
 
     private final JPAQueryFactory jpaQueryBuilderFactory;
 
-	public QuerydslBuilder(JPQLTemplates jpqlTemplates, EntityManager entityManager) {
-		this.jpaQueryBuilderFactory = new JPAQueryFactory(jpqlTemplates, entityManager);
+	public QuerydslBuilder(QuerydslBuilderTemplates templates, EntityManager entityManager) {
+		this.jpaQueryBuilderFactory = new JPAQueryFactory(templates.getJpqlTemplates(), entityManager);
 	}
 
 	public <T extends QuerydslSelectDTO> QuerydslBase<T> select(Class<T> selectClass) {
