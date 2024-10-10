@@ -17,13 +17,13 @@ import java.util.*;
 @Getter
 public class QuerydslBase<T> {
 
-    private final QuerydslBuilder querydslRepository;
+    private final QuerydslBuilder querydslBuilder;
     private final JPAQuery<?> jpaQuery;
     private Expression<T> select;
     private Expression<Long> countSelect;
 
-    public QuerydslBase(QuerydslBuilder querydslRepository, JPAQueryFactory queryFactory) {
-        this.querydslRepository = querydslRepository;
+    public QuerydslBase(QuerydslBuilder querydslBuilder, JPAQueryFactory queryFactory) {
+        this.querydslBuilder = querydslBuilder;
         this.jpaQuery = queryFactory.query();
     }
 
@@ -198,15 +198,15 @@ public class QuerydslBase<T> {
     }
 
     public Optional<T> getRow() {
-        return this.querydslRepository.getRow(this);
+        return this.querydslBuilder.getRow(this);
     }
 
     public List<T> getList() {
-        return this.querydslRepository.getList(this);
+        return this.querydslBuilder.getList(this);
     }
 
     public Page<T> getPage(PageRequest pageRequest) {
-        return this.querydslRepository.getPage(this, pageRequest);
+        return this.querydslBuilder.getPage(this, pageRequest);
     }
 
 }
