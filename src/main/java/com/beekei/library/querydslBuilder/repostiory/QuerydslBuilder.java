@@ -6,7 +6,6 @@ import com.querydsl.core.types.Expression;
 import com.querydsl.jpa.JPQLTemplates;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
-import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -20,34 +19,34 @@ import java.util.Optional;
 @Repository
 public class QuerydslBuilder {
 
-    private final JPAQueryFactory jpaQueryBuilderFactory;
+    private final JPAQueryFactory jpaQueryFactory;
 
-	public QuerydslBuilder(QuerydslBuilderTemplates templates, EntityManager entityManager) {
-		this.jpaQueryBuilderFactory = new JPAQueryFactory(templates.getJpqlTemplates(), entityManager);
+	public QuerydslBuilder(JPQLTemplates jpqlTemplates, EntityManager entityManager) {
+		this.jpaQueryFactory = new JPAQueryFactory(jpqlTemplates, entityManager);
 	}
 
 	public <T extends QuerydslSelectDTO> QuerydslBase<T> select(Class<T> selectClass) {
-        QuerydslBase<T> querydslBase = new QuerydslBase<>(this, jpaQueryBuilderFactory);
+        QuerydslBase<T> querydslBase = new QuerydslBase<>(this, jpaQueryFactory);
         return querydslBase.select(selectClass);
     }
 
     public <T extends QuerydslSelectDTO> QuerydslBase<T> select(Class<T> selectClass, Expression<Long> countSelect) {
-        QuerydslBase<T> querydslBase = new QuerydslBase<>(this, jpaQueryBuilderFactory);
+        QuerydslBase<T> querydslBase = new QuerydslBase<>(this, jpaQueryFactory);
         return querydslBase.select(selectClass).countSelect(countSelect);
     }
 
     public <T> QuerydslBase<T> select(Expression<T> select) {
-        QuerydslBase<T> querydslBase = new QuerydslBase<>(this, jpaQueryBuilderFactory);
+        QuerydslBase<T> querydslBase = new QuerydslBase<>(this, jpaQueryFactory);
         return querydslBase.select(select);
     }
 
     public <T> QuerydslBase<T> selectFrom(EntityPath<T> selectFrom) {
-        QuerydslBase<T> querydslBase = new QuerydslBase<>(this, jpaQueryBuilderFactory);
+        QuerydslBase<T> querydslBase = new QuerydslBase<>(this, jpaQueryFactory);
         return querydslBase.selectFrom(selectFrom);
     }
 
     public <T> QuerydslBase<T> from(EntityPath<T> from) {
-        QuerydslBase<T> querydslBase = new QuerydslBase<>(this, jpaQueryBuilderFactory);
+        QuerydslBase<T> querydslBase = new QuerydslBase<>(this, jpaQueryFactory);
         return querydslBase.from(from);
     }
 
