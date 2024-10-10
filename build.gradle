@@ -1,5 +1,11 @@
 plugins {
-    id 'java'
+    id 'java-library'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
 }
 
 apply plugin: 'maven-publish'
@@ -16,14 +22,6 @@ publishing {
 
 group = 'com.beekei'
 version = '1.0'
-
-java {
-    sourceCompatibility = JavaVersion.toVersion(17)
-    targetCompatibility = JavaVersion.toVersion(17)
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
-    }
-}
 
 repositories {
     mavenCentral()
