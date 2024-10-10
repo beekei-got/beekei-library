@@ -3,12 +3,6 @@ plugins {
     id 'maven-publish'
 }
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
-    }
-}
-
 publishing {
     publications {
         maven(MavenPublication) {
