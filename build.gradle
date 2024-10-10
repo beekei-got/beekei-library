@@ -2,13 +2,17 @@ plugins {
     id 'java'
 }
 
+java {
+    sourceCompatibility = '17'
+}
+
 apply plugin: 'maven-publish'
 publishing {
     publications {
         maven(MavenPublication) {
             groupId 'com.beekei'
             artifactId 'beekei-library'
-            version '1.0'
+            version '0.1'
             from components.java
         }
     }
@@ -20,6 +24,8 @@ version = '1.0'
 repositories {
     mavenCentral()
 }
+
+
 
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
@@ -37,8 +43,8 @@ dependencies {
     // querydsl
     implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
     annotationProcessor "com.querydsl:querydsl-apt:5.1.0:jakarta"
-    annotationProcessor "jakarta.annotation:jakarta.annotation-api"
-    annotationProcessor "jakarta.persistence:jakarta.persistence-api"
+    annotationProcessor "jakarta.persistence:jakarta.persistence-api:3.1.0"
+    annotationProcessor "jakarta.annotation:jakarta.annotation-api:2.1.1"
 }
 
 test {
