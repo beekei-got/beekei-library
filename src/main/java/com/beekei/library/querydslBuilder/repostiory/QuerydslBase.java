@@ -17,12 +17,12 @@ import java.util.*;
 @Getter
 public class QuerydslBase<T> {
 
-    private final QuerydslRepository querydslRepository;
+    private final QuerydslBuilder querydslRepository;
     private final JPAQuery<?> jpaQuery;
     private Expression<T> select;
     private Expression<Long> countSelect;
 
-    public QuerydslBase(QuerydslRepository querydslRepository, JPAQueryFactory queryFactory) {
+    public QuerydslBase(QuerydslBuilder querydslRepository, JPAQueryFactory queryFactory) {
         this.querydslRepository = querydslRepository;
         this.jpaQuery = queryFactory.query();
     }

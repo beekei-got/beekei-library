@@ -3,7 +3,9 @@ package com.beekei.library.querydslBuilder.repostiory;
 import com.beekei.library.querydslBuilder.dto.QuerydslSelectDTO;
 import com.querydsl.core.types.EntityPath;
 import com.querydsl.core.types.Expression;
+import com.querydsl.jpa.JPQLTemplates;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -16,12 +18,15 @@ import java.util.Optional;
 
 
 @Repository
-@RequiredArgsConstructor
-public class QuerydslRepository {
+public class QuerydslBuilder {
 
     private final JPAQueryFactory jpaQueryBuilderFactory;
 
-    public <T extends QuerydslSelectDTO> QuerydslBase<T> select(Class<T> selectClass) {
+	public QuerydslBuilder(JPQLTemplates jpqlTemplates, EntityManager entityManager) {
+		this.jpaQueryBuilderFactory = new JPAQueryFactory(jpqlTemplates, entityManager);
+	}
+
+	public <T extends QuerydslSelectDTO> QuerydslBase<T> select(Class<T> selectClass) {
         QuerydslBase<T> querydslBase = new QuerydslBase<>(this, jpaQueryBuilderFactory);
         return querydslBase.select(selectClass);
     }
