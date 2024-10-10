@@ -1,5 +1,6 @@
 plugins {
-    id 'java-library'
+    id 'java'
+    id 'maven-publish'
 }
 
 java {
@@ -8,13 +9,12 @@ java {
     }
 }
 
-apply plugin: 'maven-publish'
 publishing {
     publications {
         maven(MavenPublication) {
             groupId 'com.beekei'
-            artifactId 'beekei-library'
-            version '0.1'
+            artifactId 'library'
+            version '1.0'
             from components.java
         }
     }
