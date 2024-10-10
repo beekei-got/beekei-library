@@ -2,12 +2,6 @@ plugins {
     id 'java'
 }
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
-    }
-}
-
 apply plugin: 'maven-publish'
 publishing {
     publications {
@@ -23,11 +17,17 @@ publishing {
 group = 'com.beekei'
 version = '1.0'
 
+java {
+    sourceCompatibility = JavaVersion.toVersion(17)
+    targetCompatibility = JavaVersion.toVersion(17)
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
 repositories {
     mavenCentral()
 }
-
-
 
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
