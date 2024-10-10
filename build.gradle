@@ -2,10 +2,6 @@ plugins {
     id 'java'
 }
 
-java {
-    sourceCompatibility = '17'
-}
-
 apply plugin: 'maven-publish'
 publishing {
     publications {
