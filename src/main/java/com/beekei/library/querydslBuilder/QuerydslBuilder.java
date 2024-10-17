@@ -1,6 +1,5 @@
-package com.beekei.library.querydslBuilder.repostiory;
+package com.beekei.library.querydslBuilder;
 
-import com.beekei.library.querydslBuilder.dto.QuerydslSelectDTO;
 import com.querydsl.core.types.EntityPath;
 import com.querydsl.core.types.Expression;
 import com.querydsl.jpa.JPQLTemplates;

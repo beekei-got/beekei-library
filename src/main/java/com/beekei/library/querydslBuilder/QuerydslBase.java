@@ -1,7 +1,6 @@
-package com.beekei.library.querydslBuilder.repostiory;
+package com.beekei.library.querydslBuilder;
 
 
-import com.beekei.library.querydslBuilder.dto.QuerydslSelectDTO;
 import com.querydsl.core.ResultTransformer;
 import com.querydsl.core.types.*;
 import com.querydsl.core.types.dsl.*;

@@ -1,4 +1,4 @@
-package com.beekei.library.querydslBuilder.dto;
+package com.beekei.library.querydslBuilder;
 
 
 import com.querydsl.core.types.ConstructorExpression;
