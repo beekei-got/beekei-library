@@ -8,14 +8,14 @@ publishing {
         maven(MavenPublication) {
             groupId 'com.beekei'
             artifactId 'library'
-            version '1.1.0'
+            version '1.1.2'
             from components.java
         }
     }
 }
 
 group = 'com.beekei'
-version = '1.1.0'
+version = '1.1.2'
 
 repositories {
     mavenCentral()
