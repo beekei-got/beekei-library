@@ -8,14 +8,14 @@ publishing {
         maven(MavenPublication) {
             groupId 'com.beekei'
             artifactId 'library'
-            version '1.2.1'
+            version '1.2.2'
             from components.java
         }
     }
 }
 
 group = 'com.beekei'
-version = '1.2.1'
+version = '1.2.2'
 
 repositories {
     mavenCentral()
@@ -26,6 +26,7 @@ dependencies {
     implementation 'org.springframework:spring-core:6.1.11'
     implementation 'org.springframework:spring-webmvc:6.1.11'
     testImplementation 'org.springframework.boot:spring-boot-test:3.3.2'
+    compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
 
     // jpa
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.3.2'
