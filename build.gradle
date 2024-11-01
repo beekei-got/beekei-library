@@ -8,14 +8,14 @@ publishing {
         maven(MavenPublication) {
             groupId 'com.beekei'
             artifactId 'library'
-            version '1.2.0'
+            version '1.2.1'
             from components.java
         }
     }
 }
 
 group = 'com.beekei'
-version = '1.2.0'
+version = '1.2.1'
 
 repositories {
     mavenCentral()
@@ -50,9 +50,9 @@ dependencies {
     implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.17.2'
 
     // test
-    testImplementation 'org.springframework.boot:spring-boot-test-autoconfigure:3.3.2'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.3'
-    testImplementation 'org.mockito:mockito-junit-jupiter:5.11.0'
+    implementation 'org.springframework.boot:spring-boot-test-autoconfigure:3.3.2'
+    implementation 'org.junit.jupiter:junit-jupiter-api:5.10.3'
+    implementation 'org.mockito:mockito-junit-jupiter:5.11.0'
 }
 
 test {
