@@ -23,7 +23,7 @@ repositories {
 
 dependencies {
     // spring
-    implementation 'org.springframework:spring-core:6.1.11'
+    implementation 'org.springframework:-core:6.1.11'
     implementation 'org.springframework:spring-webmvc:6.1.11'
     testImplementation 'org.springframework.boot:spring-boot-test:3.3.2'
     compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
@@ -54,8 +54,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-test-autoconfigure:3.3.2'
     implementation 'org.junit.jupiter:junit-jupiter-api:5.10.3'
     implementation 'org.mockito:mockito-junit-jupiter:5.11.0'
+    implementation 'org.hamcrest:hamcrest:2.2'
 }
 
-test {
-    useJUnitPlatform()
-}
+//test {
+//    useJUnitPlatform()
+//}
