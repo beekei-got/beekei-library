@@ -1,7 +1,6 @@
 package com.beekei.library.apiVersion;
 
 import lombok.Getter;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.web.servlet.mvc.condition.*;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
@@ -24,16 +23,13 @@ public class ApiVersionRequestMappingHandlerMapping extends RequestMappingHandle
         if(info == null) return null;
 
         ApiVersion methodAnnotation = AnnotationUtils.findAnnotation(method, ApiVersion.class);
-        if(methodAnnotation != null) {
+        if (methodAnnotation != null) {
             RequestCondition<?> methodCondition = getCustomMethodCondition(method);
-            // Concatenate our ApiVersion with the usual request mapping
             info = createApiVersionInfo(methodAnnotation, methodCondition).combine(info);
         } else {
             ApiVersion typeAnnotation = AnnotationUtils.findAnnotation(handlerType, ApiVersion.class);
-
-            if(typeAnnotation != null) {
+            if (typeAnnotation != null) {
                 RequestCondition<?> typeCondition = getCustomTypeCondition(handlerType);
-                // Concatenate our ApiVersion with the usual request mapping
                 info = createApiVersionInfo(typeAnnotation, typeCondition).combine(info);
             }
         }
