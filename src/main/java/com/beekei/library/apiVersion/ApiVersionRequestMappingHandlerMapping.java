@@ -13,19 +13,9 @@ import java.lang.reflect.Method;
 public class ApiVersionRequestMappingHandlerMapping extends RequestMappingHandlerMapping {
 
     private final String pathPrefix;
-    private final String versionPrefix;
-    private final String apiPrefix;
 
-    public ApiVersionRequestMappingHandlerMapping(String pathPrefix, String versionPrefix) {
+    public ApiVersionRequestMappingHandlerMapping(String pathPrefix) {
         this.pathPrefix = pathPrefix;
-        this.versionPrefix = versionPrefix;
-        this.apiPrefix = pathPrefix + "/" + versionPrefix;
-    }
-
-    public ApiVersionRequestMappingHandlerMapping(String versionPrefix) {
-        this.pathPrefix = null;
-        this.versionPrefix = versionPrefix;
-        this.apiPrefix = versionPrefix;
     }
 
     @Override
@@ -53,7 +43,7 @@ public class ApiVersionRequestMappingHandlerMapping extends RequestMappingHandle
 
     private RequestMappingInfo createApiVersionInfo(ApiVersion annotation, RequestCondition<?> customCondition) {
         int value = annotation.value();
-        String[] patterns = { this.apiPrefix + value };
+        String[] patterns = { this.pathPrefix + value };
         return new RequestMappingInfo(
             new PatternsRequestCondition(patterns, getUrlPathHelper(), getPathMatcher(), useSuffixPatternMatch(), useTrailingSlashMatch(), getFileExtensions()),
             new RequestMethodsRequestCondition(),
